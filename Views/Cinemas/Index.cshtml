@@ -1,17 +1,17 @@
-﻿@model IEnumerable<Actor>
+﻿@model IEnumerable<Cinema>
 
 @{
-    ViewData["Title"] = "List of Actors";
+    ViewData["Title"] = "List of Cinema";
 }
 
 <div class="row">
     <div class="col-md-8 offset-md-2 table-responsive">
         <table class="table">
             <thead>
-                <tr  class="text-center">
-                    <th>@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
-                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Bio)</th>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.Logo)</th>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -20,15 +20,15 @@
                 {
                 <tr>
                     <td class="text-center align-middle">
-                        <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 50px" />
+                        <img class="rounded-circle" src="@item.Logo" alt="@item.Name" style="max-width: 50px" />
                     </td>
                     <td class="text-center align-middle">
-                        @Html.DisplayFor(modelItem => item.FullName)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td class="text-center align-middle">
-                        @Html.DisplayFor(modelItem => item.Bio)
+                        @Html.DisplayFor(modelItem => item.Description)
                     </td>
-                    <td class="text-center align-middle">
+                    <td class="text-center">
                         <a class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Edit</a>
                         <a class="btn btn-outline-info"><i class="bi bi-eye"></i> Details</a>
                         <a class="btn btn-danger text-white"><i class="bi bi-trash"></i> Delete</a>
