@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eTickets.Controllers.Base
 {
-    public class BaseController : Controller
+    public class BaseController<T> : Controller
     {
-        protected readonly AppDbContext _context;
+        protected readonly T _service;
 
-        public BaseController(AppDbContext context)
+        public BaseController(T service)
         {
-            _context = context;
+            _service = service;
         }
     }
 }
