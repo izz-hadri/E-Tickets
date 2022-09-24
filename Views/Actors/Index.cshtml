@@ -20,7 +20,10 @@
                 {
                 <tr>
                     <td class="text-center align-middle">
-                        <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 50px" />
+                        <img class="rounded-circle" 
+                             src="@item.ProfilePictureURL"
+                             alt="@item.FullName" 
+                             style="max-width: 50px" />
                     </td>
                     <td class="text-center align-middle">
                         @Html.DisplayFor(modelItem => item.FullName)
@@ -38,4 +41,12 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div class="text-white" 
+     style="position: fixed; right: 25px;">
+    <a asp-controller="Actors" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i>
+        Add New
+    </a>
 </div>
