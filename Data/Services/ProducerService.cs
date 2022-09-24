@@ -8,6 +8,11 @@ namespace eTickets.Data.Services
     {
         private readonly AppDbContext _context;
 
+        public ProducerService(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public void Add(Producer producer)
         {
             throw new NotImplementedException();

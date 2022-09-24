@@ -8,6 +8,11 @@ namespace eTickets.Data.Services
     {
         private readonly AppDbContext _context;
 
+        public CinemaService(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public void Add(Cinema cinema)
         {
             throw new NotImplementedException();
