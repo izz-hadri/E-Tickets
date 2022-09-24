@@ -2,7 +2,7 @@
 
 namespace eTickets.Data.Services.Interfaces
 {
-    public interface IProducesService
+    public interface IProducersService
     {
         Task<IEnumerable<Producer>> GetAll();
         Producer GetById(int id);
