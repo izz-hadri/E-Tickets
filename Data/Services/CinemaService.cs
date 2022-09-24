@@ -4,16 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Data.Services
 {
-    public class ActorService : IActorsService
+    public class CinemaService : ICinemasService
     {
         private readonly AppDbContext _context;
 
-        public ActorService(AppDbContext context)
-        {
-            _context = context;
-        }
-
-        public void Add(Actor actor)
+        public void Add(Cinema cinema)
         {
             throw new NotImplementedException();
         }
@@ -23,19 +18,19 @@ namespace eTickets.Data.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Actor>> GetAll()
+        public async Task<IEnumerable<Cinema>> GetAll()
         {
-            List<Actor> result = await _context.Actors.ToListAsync();
+           List<Cinema> result = await _context.Cinemas.ToListAsync();
 
             return result;
         }
 
-        public Actor GetById(int id)
+        public Cinema GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Actor Update(int id, Actor newActor)
+        public Cinema Update(int id, Cinema newCinema)
         {
             throw new NotImplementedException();
         }
