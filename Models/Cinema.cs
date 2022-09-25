@@ -13,7 +13,7 @@ namespace eTickets.Models
         public string Logo { get; set; }
 
         [Display(Name = "Name")]
-        [Required(ErrorMessage = "Movie Name is required.")]
+        [Required(ErrorMessage = "Cinema Name is required.")]
         public string Name { get; set; }
 
         [Display(Name = "Description")]

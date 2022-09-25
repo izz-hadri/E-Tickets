@@ -14,9 +14,50 @@ namespace eTickets.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Movie> allMovies = await _service.GetAll();
+            IEnumerable<Movie> allMovies = await _service.GetAllAsync(n => n.Cinema);
 
             return View(allMovies);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Movie movieDetails = await _service.GetByIdAsync(id);
+
+            if (movieDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(movieDetails);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            Movie movieDetails = await _service.GetByIdAsync(id);
+
+            if (movieDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(movieDetails);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            Movie movieDetails = await _service.GetMovieByIdAsync(id);
+
+            if (movieDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(movieDetails);
         }
     }
 }

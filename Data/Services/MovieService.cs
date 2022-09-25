@@ -1,46 +1,28 @@
-﻿using eTickets.Data.Services.Interfaces;
+﻿using eTickets.Data.Base;
+using eTickets.Data.Services.Interfaces;
 using eTickets.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Data.Services
 {
-    public class MovieService : IMoviesService
+    public class MovieService : EntityBaseRepository<Movie>, IMoviesService
     {
         private readonly AppDbContext _context;
-
-        public MovieService(AppDbContext context)
+        public MovieService(AppDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public void Add(Movie movie)
+        public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Movie>> GetAll()
-        {
-            List<Movie> result = await _context.Movies
+            Movie movieDetails = await _context.Movies
                 .Include(x => x.Cinema)
-                .OrderBy(x => x.Name)
-                .ToListAsync();
+                .Include(x => x.Producer)
+                .Include(x => x.Actors_Movies)
+                .ThenInclude(x => x.Actor)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-            return result;
-        }
-
-        public Movie GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Movie Update(int id, Movie newMovie)
-        {
-            throw new NotImplementedException();
+            return movieDetails;
         }
     }
 }

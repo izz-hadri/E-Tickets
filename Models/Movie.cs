@@ -1,21 +1,25 @@
-﻿using eTickets.Data.Enums;
+﻿using eTickets.Data.Base;
+using eTickets.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTickets.Models
 {
-    public class Movie
+    public class Movie : IEntityBase
     {
         [Key]
         public int Id { get; set; }
 
         [Display(Name = "Name")]
+        [Required(ErrorMessage = "Movie Name is required.")]
         public string Name { get; set; }
 
         [Display(Name = "Description")]
+        [Required(ErrorMessage = "Description is required.")]
         public string Description { get; set; }
 
         [Display(Name = "Image")]
+        [Required(ErrorMessage = "Image is required.")]
         public string ImageURL { get; set; }
         public double Price { get; set; }
         public DateTime StartDate{ get; set; }
