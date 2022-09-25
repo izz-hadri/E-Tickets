@@ -17,6 +17,6 @@ namespace eTickets.Models
         [Display(Name = "Biography")]
         public string Bio { get; set; }
 
-        public List<Movie> Movies { get; set; }
+        public List<Movie>? Movies { get; set; }
     }
 }

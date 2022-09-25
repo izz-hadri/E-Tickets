@@ -18,5 +18,46 @@ namespace eTickets.Controllers
 
             return View(allProducers);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Producer producerDetails = await _service.GetByIdAsync(id);
+
+            if (producerDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(producerDetails);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            Producer producerDetails = await _service.GetByIdAsync(id);
+
+            if (producerDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(producerDetails);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            Producer producerDetails = await _service.GetByIdAsync(id);
+
+            if (producerDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(producerDetails);
+        }
     }
 }
