@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eTickets.Controllers
 {
-    public class ProducersController : BaseController<IProducersService>
+    public partial class ProducersController : BaseController<IProducersService>
     {
         public ProducersController(IProducersService service): base(service)
         {
@@ -14,7 +14,7 @@ namespace eTickets.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Producer> allProducers = await _service.GetAll();
+            IEnumerable<Producer> allProducers = await _service.GetAllAsync();
 
             return View(allProducers);
         }
