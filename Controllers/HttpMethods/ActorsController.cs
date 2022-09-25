@@ -37,5 +37,20 @@ namespace eTickets.Controllers.HttpMethods
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            Actor actorDetails = await _service.GetByIdAsync(id);
+
+            if (actorDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            await _service.DeleteAsync(id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

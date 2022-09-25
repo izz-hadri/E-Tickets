@@ -36,6 +36,18 @@ namespace eTickets.Controllers
             return View(actorDetails);
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            Actor actorDetails = await _service.GetByIdAsync(id);
+
+            if (actorDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(actorDetails);
+        }
+
         public async Task<IActionResult> Details(int id)
         {
             Actor actorDetails = await _service.GetByIdAsync(id);
