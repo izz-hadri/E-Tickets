@@ -3,7 +3,7 @@ using eTickets.Data.Services.Interfaces;
 using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eTickets.Controllers.Apis
+namespace eTickets.Controllers.HttpMethods
 {
     public partial class ActorsController : BaseController<IActorsService>
     {
@@ -20,7 +20,7 @@ namespace eTickets.Controllers.Apis
                 return View(actor);
             }
 
-            _service.AddAsync(actor);
+            await _service.AddAsync(actor);
 
             return RedirectToAction(nameof(Index));
         }
