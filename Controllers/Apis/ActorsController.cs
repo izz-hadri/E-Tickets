@@ -20,7 +20,7 @@ namespace eTickets.Controllers.Apis
                 return View(actor);
             }
 
-            _service.Add(actor);
+            _service.AddAsync(actor);
 
             return RedirectToAction(nameof(Index));
         }
