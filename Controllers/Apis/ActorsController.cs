@@ -24,5 +24,18 @@ namespace eTickets.Controllers.Apis
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,ProfilePictureURL,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+
+            await _service.UpdateAsync(id, actor);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

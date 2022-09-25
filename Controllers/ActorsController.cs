@@ -24,13 +24,25 @@ namespace eTickets.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            Actor actorDetails = await _service.GetByIdAsync(id);
+
+            if(actorDetails == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(actorDetails);
+        }
+
         public async Task<IActionResult> Details(int id)
         {
             Actor actorDetails = await _service.GetByIdAsync(id);
 
             if (actorDetails == null)
             {
-                return View("Empty");
+                return View("NotFound");
             }
 
             return View(actorDetails);
