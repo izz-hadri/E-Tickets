@@ -1,13 +1,10 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data.Base;
+using eTickets.Models;
 
 namespace eTickets.Data.Services.Interfaces
 {
-    public interface ICinemasService
+    public interface ICinemasService : IEntityBaseRepository<Cinema>
     {
-        Task<IEnumerable<Cinema>> GetAll();
-        Cinema GetById(int id);
-        void Add(Cinema cinema);
-        Cinema Update(int id, Cinema newCinema);
-        void Delete(int id);
+
     }
 }

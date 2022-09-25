@@ -37,7 +37,6 @@ namespace eTickets.Data.Base
             entityEntry.State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
-
         }
     }
 }
